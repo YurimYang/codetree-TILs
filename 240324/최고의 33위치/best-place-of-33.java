@@ -7,33 +7,31 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         int n = Integer.parseInt(br.readLine());
-        int numCoin = 0;
+        int maxOfCoin = 0;
         int[][] xy = new int[n][n];
-        for(int i = 0; i< n; i++){
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
-            for(int j = 0; j<n; j++){
+            for (int j = 0; j < n; j++) {
                 xy[i][j] = Integer.parseInt(st.nextToken());
             }
         }
-
-        for(int i = 0; i<n; i++){
-            if(i >= n || i+1 >= n || i+2 >= n){
-                break;
+        for(int i = 0; i<= n-3; i++){
+            for(int j =0; j<=n-3; j++){
+                maxOfCoin = Math.max(maxOfCoin, checkCoin(xy, i,j));
             }
-            numCoin = Math.max(numCoin,checkCoin(xy,i));
         }
-        System.out.println(numCoin);
+        System.out.println(maxOfCoin);
     }
 
-    public static int checkCoin(int[][] xy, int x){
-        int maxCoin = 0;
-        for(int i = x; i<x+3; i++){
-            for(int j = x; j<x+3; j++){
+    public static int checkCoin(int[][] xy, int x, int y) {
+        int numOfCoin = 0;
+        for (int i = x; i <= x + 2; i++) {
+            for (int j = y; j <= y + 2; j++){
                 if(xy[i][j] == 1){
-                    maxCoin++;
+                    numOfCoin++;
                 }
             }
         }
-        return maxCoin;
+        return numOfCoin;
     }
 }
