@@ -22,7 +22,7 @@ public class Main {
             }
         }
 
-        int targetIdx = findRIdx()-1;
+        int targetIdx = findRIdx();
         for(int j = k; j<=m+k-1; j++){
             numbers[targetIdx][j] = 1;
         }
@@ -36,8 +36,8 @@ public class Main {
     }
 
     public static int findRIdx(){
-        int rIdx = 1;
-        for(int i = 1; i<n; i++){
+        int rIdx = 0;
+        for(int i = 1; i<=n; i++){
             int cntZero = 0;
             for(int j = k; j<=m+k-1; j++){
                 if(numbers[i][j] == 0){
