@@ -19,7 +19,7 @@ public class Main {
 
         for(int i = 0; i<= n-k; i++){
             int maxTmp = 0;
-            for(int j = i; j<i+3; j++){
+            for(int j = i; j<i+k; j++){
                 maxTmp += nums[j];
             }
             maxSum = Math.max(maxSum, maxTmp);
