@@ -20,9 +20,7 @@ public class Main {
             for(int j = 1; j<=n; j++){
                 distance += people[j] * Math.abs(j-i);
             }
-            if(distance < min){
-                min = distance;
-            }
+            min = Math.min(min,distance);
         }
         System.out.println(min);
     }
