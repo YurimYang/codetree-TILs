@@ -15,15 +15,14 @@ public class Main {
 
         int ans = 0;
         for(int i = 1; i<=n; i++){
-            for(int j = i; j<=n; j++){
-                if(cows[j] > cows[i]){
-                    for(int k = j; k<=n; k++){
-                        if(cows[k] > cows[j]){
+            for(int j = i+1; j<=n; j++){
+                if(cows[j] >= cows[i]){
+                    for(int k = j+1; k<=n; k++){
+                        if(cows[k] >= cows[j]){
                             ans++;
                         }
                     }
                 }
-
             }
         }
         System.out.println(ans);
