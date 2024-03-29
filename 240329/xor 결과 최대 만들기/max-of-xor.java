@@ -19,24 +19,23 @@ public class Main {
             nums[i] = Integer.parseInt(st.nextToken());
         }
 
-        findCombination(1,0);
+        findCombination(0,0);
         System.out.println(maxAns);
-
 
     }
 
     public static void findCombination(int currNum, int cnt){
-        if(currNum == n+1){
+        if(currNum == nums.length){
             if(cnt == m){
                 maxAns = Math.max(maxAns,calXOR());
             }
             return;
         }
 
-        xor.add(currNum);
+        xor.add(nums[currNum]);
+
         findCombination(currNum+1,cnt+1);
         xor.remove(xor.size()-1);
-
         findCombination(currNum+1, cnt);
 
     }
