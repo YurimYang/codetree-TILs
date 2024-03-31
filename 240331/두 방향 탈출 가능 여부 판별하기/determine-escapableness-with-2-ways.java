@@ -12,8 +12,8 @@ public class Main {
         st = new StringTokenizer(br.readLine());
         n = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken()); //n*m 이차원 배열
-        grid = new int[n][n];
-        visited = new int[n][n];
+        grid = new int[n][m];
+        visited = new int[n][m];
 
         for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
