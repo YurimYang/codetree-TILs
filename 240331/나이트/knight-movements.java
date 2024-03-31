@@ -23,10 +23,15 @@ public class Main {
         queue.add(new Points(r1,c1));
         bfs();
 
-        if(visited[r2][c2] != step[r2][c2] && step[r2][c2] >= 0){
-            System.out.println(step[r2][c2]);
+        if(r1==r2 && c1== c2){
+            System.out.println(0);
         } else {
-            System.out.println(-1);
+            if(step[r2][c2] > 0){
+                System.out.println(step[r2][c2]);
+            } else {
+                System.out.println(-1);
+            }
+
         }
     }
 
