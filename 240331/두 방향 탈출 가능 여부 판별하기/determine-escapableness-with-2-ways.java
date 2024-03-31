@@ -5,7 +5,7 @@ public class Main {
 
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
-    static int n, m, ans=1;
+    static int n,m;
     static int[][] grid, visited;
 
     public static void main(String args[]) throws IOException {
@@ -22,12 +22,9 @@ public class Main {
             }
         }
 
+        visited[0][0] = 1;
         DFS(0, 0);
-        if(visited[n-1][m-1] == 1){
-            System.out.println(1);
-        }else{
-            System.out.println(0);
-        }
+        System.out.println(visited[n-1][m-1]);
     }
 
     public static void DFS(int x, int y) {
