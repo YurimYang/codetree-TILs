@@ -21,13 +21,12 @@ public class Main {
             if(a[i] == b[i]){
                 tmp++;
             }else{
+                System.out.println("No");
                 break;
             }
         }
-        if(tmp > 0){
+        if(tmp == n){
             System.out.println("Yes");
-        }else{
-            System.out.println("No");
         }
 
     }
