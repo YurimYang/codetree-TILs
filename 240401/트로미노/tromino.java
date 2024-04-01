@@ -43,6 +43,8 @@ public class Main {
         ansList.add(ver3Max);
         Collections.sort(ansList);
         System.out.println(ansList.get(2));
+
+
     }
     public static boolean inRange(int x, int y){
         return 0<=x && x<n && 0<=y && y<m;
@@ -52,9 +54,9 @@ public class Main {
         int ans = 0;
         for(int i = currCol; i<currCol+2; i++){
             for(int j = currRow; j<currRow+2; j++){
-                if(inRange(i,j)){
-                    ans+= grid[i][j];
-                    minNum = Math.min(minNum, grid[i][j]);
+                if(inRange(j,i)){
+                    ans+= grid[j][i];
+                    minNum = Math.min(minNum, grid[j][i]);
                 }
             }
         }
