@@ -30,7 +30,7 @@ public class Main {
             }
             return;
         }
-        numsFirst.add(nums.get(idx));
+        numsFirst.add(idx);
         backTracking(idx + 1, cnt + 1);
         numsFirst.remove(numsFirst.size() - 1);
         backTracking(idx + 1, cnt);
@@ -41,10 +41,10 @@ public class Main {
         int firstSum = 0;
         int secondSum = 0;
         for (int first : numsFirst) {
-            firstSum += first;
+            firstSum += nums.get(first);
         }
         for (int second : numsSecond) {
-            secondSum += second;
+            secondSum += nums.get(second);
         }
         return Math.abs(firstSum - secondSum);
     }
@@ -52,11 +52,9 @@ public class Main {
     public static void makeSecondList() {
         numsSecond = new ArrayList<>();
         for (int i = 0; i < 2 * n; i++) {
-            if (!numsFirst.contains(nums.get(i))) {
-                numsSecond.add(nums.get(i));
+            if (!numsFirst.contains(i)) {
+                numsSecond.add(i);
             }
         }
     }
-
-
 }
