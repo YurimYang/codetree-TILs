@@ -7,6 +7,7 @@ public class Main {
     static StringTokenizer st;
     static int n, k, m, r, c, max;
     static int[][] grid, visited;
+    static List<Pos> startList = new ArrayList<>();
     static List<Pos> stoneList = new ArrayList<>();
     static List<Pos> selectedStonesList = new ArrayList<>();
     static Queue<Pos> queue = new LinkedList<>();
@@ -34,7 +35,7 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             r = Integer.parseInt(st.nextToken()) - 1;
             c = Integer.parseInt(st.nextToken()) - 1;
-            queue.add(new Pos(r, c));
+            startList.add(new Pos(r,c));
         }
         pickStone(0, 0);
 
@@ -56,7 +57,7 @@ public class Main {
 
     public static void initialized() {
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
+            for (int j = 0; j < n; j++) {
                 visited[i][j] = 0;
             }
         }
@@ -67,6 +68,9 @@ public class Main {
             grid[selectedStonesList.get(i).x][selectedStonesList.get(i).y] = 0;
         }
         initialized();
+        for(Pos start : startList){
+            queue.add(start);
+        }
         BFS();
         for (int i = 0; i < m; i++) {
             grid[selectedStonesList.get(i).x][selectedStonesList.get(i).y] = 1;
