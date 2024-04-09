@@ -6,7 +6,8 @@ import java.io.*;
 public class Main {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
-    static int n, m, ans = Integer.MAX_VALUE;
+    static int n, m;
+    static int ans = Integer.MAX_VALUE;
     static int[][] grid, visited, step;
     static List<Point> hospital = new ArrayList<>();
     static Queue<Point> pickedHospital = new LinkedList<>();
