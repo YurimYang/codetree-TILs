@@ -63,6 +63,7 @@ public class Main {
             Point currHospital = pickedHospital.poll();
             int x = currHospital.x; 
             int y = currHospital.y;
+            visited[x][y] = 1;
 
             for(int i = 0; i<4; i++){
                 int nx = x + dx[i];
