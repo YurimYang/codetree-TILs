@@ -80,6 +80,7 @@ public class Main {
         for(int i = 0; i<n; i++){
             for(int j = 0; j<n; j++){
                 if(visited[i][j] == 0){
+                    group = new ArrayList<>();
                     sum.add(new Point(i,j));
                     group.add(new Point(i,j));
                     visited[i][j] = 1;
@@ -94,7 +95,6 @@ public class Main {
             }
         }
         return isChanged;
-
     }
 
     public static boolean canGo(int nx, int ny, int curr){
