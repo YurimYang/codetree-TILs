@@ -2,23 +2,28 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static StringTokenizer st;
     static int n, L, R;
     static int[][] grid, visited;
     static Queue<Point> sum = new LinkedList<>();
     static List<Point> group = new ArrayList<>();
 
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        n = sc.nextInt();
-        L = sc.nextInt();
-        R = sc.nextInt();
+    public static void main(String[] args) throws IOException{
+        st = new StringTokenizer(br.readLine());
+        n = Integer.parseInt(st.nextToken());
+        L = Integer.parseInt(st.nextToken()); //이상
+        R = Integer.parseInt(st.nextToken()); //이하
         grid = new int[n][n];
         visited = new int[n][n];
         int ans = 0;
 
-        for(int i = 0; i < n; i++)
-            for(int j = 0; j < n; j++) 
-                grid[i][j] = sc.nextInt();
+        for(int i = 0; i<n; i++){
+            st = new StringTokenizer(br.readLine());
+            for(int j = 0; j<n; j++){
+                grid[i][j] = Integer.parseInt(st.nextToken());
+            }
+        }
 
         while(true){
             if(!move()){
