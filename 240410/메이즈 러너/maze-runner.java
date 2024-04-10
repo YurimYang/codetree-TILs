@@ -54,7 +54,7 @@ public class Main {
 
     //최소 1명 포함 가장작은 정사각형 > r좌표 작은 것 > c좌표 작은 것
     public static void findSection(){
-        f
+        
     }
 
     public static void clockwiseRotation(){
