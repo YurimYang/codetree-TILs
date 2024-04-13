@@ -21,6 +21,7 @@ public class Main {
     }
 
     public static void Count(){
+        //초기값 설정
         sum[1][n] = num[1][n];
         for(int i = n-1; i> 0; i--){
             sum[1][i] = sum[1][i+1] + num[1][i];
@@ -28,6 +29,7 @@ public class Main {
         for(int i = 2; i <n+1; i++){
             sum[i][n] = sum[i-1][n] + num[i][n];
         }
+        //추후의 값 설정
         for(int i = 2; i<n+1; i++){
             for(int j = n-1; j>0; j--){
                 sum[i][j] = Math.min(sum[i][j+1],sum[i-1][j]) + num[i][j];
