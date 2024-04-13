@@ -12,7 +12,7 @@ public class Main {
 
     public static int fibo(int n){
         if(memo[n] != 0){
-            return memo[n];
+            return memo[n]; //이미 계산 된 것은 더 계산하지 않도록 -1로 초기화 후에 계산됐다면 바로 return 하기 
         }
         if(n == 1 || n == 2){
             memo[n] = 1;
