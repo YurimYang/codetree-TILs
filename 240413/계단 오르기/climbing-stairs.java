@@ -8,6 +8,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
         int n = Integer.parseInt(br.readLine());
         stair = new double[1001];
+        stair[0] = 1;
+        stair[1] = 0;
         System.out.println((int) (stairs(n) % 10007));
     }
 
