@@ -25,8 +25,8 @@ public class Main {
         for(int i = n-1; i> 0; i--){
             sum[1][i] = sum[1][i+1] + num[1][i];
         }
-        for(int i = n-1; i >0; i--){
-            sum[i][n] = sum[i+1][n] + num[i][n];
+        for(int i = 2; i <n+1; i++){
+            sum[i][n] = sum[i-1][n] + num[i][n];
         }
         for(int i = 1; i<n+1; i++){
             for(int j = n; j>0; j--){
