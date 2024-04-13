@@ -7,7 +7,7 @@ public class Main {
     //한번에 2계단, 3계단 
     public static void main(String[] args) throws IOException {
         int n = Integer.parseInt(br.readLine());
-        stair = new int[n+1];
+        stair = new int[1000];
         System.out.println(stairs(n) % 10007);
     }
 
@@ -17,7 +17,7 @@ public class Main {
         }
         if(n == 2 || n == 3){
             stair[n] = 1;
-        } else {
+        } else if (n > 3) {
             stair[n] = stairs(n-2) + stairs(n-3);
         }
         return stair[n];
