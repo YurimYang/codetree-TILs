@@ -28,11 +28,9 @@ public class Main {
         for(int i = 2; i <n+1; i++){
             sum[i][n] = sum[i-1][n] + num[i][n];
         }
-        for(int i = 1; i<n+1; i++){
-            for(int j = n; j>0; j--){
-                if(sum[i][j] == 0){
-                    sum[i][j] = sum[i-1][j] + num[i][j];
-                } 
+        for(int i = 2; i<n+1; i++){
+            for(int j = n-1; j>0; j--){
+                sum[i][j] = Math.min(sum[i][j+1],sum[i-1][j]) + num[i][j];
             }
         }
     }
