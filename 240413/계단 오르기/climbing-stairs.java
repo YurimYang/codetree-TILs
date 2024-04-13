@@ -3,15 +3,15 @@ import java.io.*;
 
 public class Main {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    static int[] stair;
+    static double[] stair;
     //한번에 2계단, 3계단 
     public static void main(String[] args) throws IOException {
         int n = Integer.parseInt(br.readLine());
-        stair = new int[1000];
-        System.out.println(stairs(n) % 10007);
+        stair = new double[1001];
+        System.out.println((int) (stairs(n) % 10007));
     }
 
-    public static int stairs(int n){
+    public static double stairs(int n){
         if(stair[n] != 0){
             return stair[n];
         }
