@@ -13,16 +13,24 @@ public class Main {
             pq.add(Integer.parseInt(st.nextToken()));
         }
 
-        while(pq.size() != 1){
+        while(pq.size() >= 2){
             pick();
         }
-        System.out.println(pq.poll());
+
+        if(pq.size() == 0){
+            System.out.println(-1);
+        } else {
+            System.out.println(pq.poll());
+        }
+        
     }
 
     public static void pick(){
         int n1 = pq.poll();
         int n2 = pq.poll();
         int sum = Math.abs(n1 - n2);
-        pq.add(sum);
+        if(sum != 0){
+            pq.add(sum);
+        }
     }
 }
