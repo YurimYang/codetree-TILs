@@ -10,8 +10,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
         n = Integer.parseInt(br.readLine());
         st= new StringTokenizer(br.readLine());
-        num = new int[n];
-        dp = new int[n];
+        num = new int[1000];
+        dp = new int[1000];
 
         for(int i = 0 ; i < n; i++){
             num[i] = Integer.parseInt(st.nextToken());
