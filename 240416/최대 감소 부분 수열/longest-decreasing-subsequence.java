@@ -22,7 +22,7 @@ public class Main {
         for(int i = 1; i<n; i++){
             for(int j = 0; j< i; j++){
                 if(num[j] > num[i]){
-                    dp[j] += Math.max(dp[j], dp[j] + 1);
+                    dp[j] = Math.max(dp[j], dp[j] + 1);
                 }
             }
         }
