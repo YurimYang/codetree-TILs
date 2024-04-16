@@ -10,24 +10,22 @@ public class Main {
     public static void main(String[] args) throws IOException {
         n = Integer.parseInt(br.readLine());
         st= new StringTokenizer(br.readLine());
-        num = new int[n+1];
-        dp = new int[n+1];
+        num = new int[n];
+        dp = new int[n];
 
-        for(int i = 1 ; i <= n; i++){
+        for(int i = 0 ; i < n; i++){
             num[i] = Integer.parseInt(st.nextToken());
         }
-
-        dp[1] = 1;
-
-        for(int i = 2; i<=n; i++){
-            for(int j = 1; j< i; j++){
-                if(num[j] >= num[i]){
+        for(int i = 0; i<n; i++){
+            dp[i] = 1;
+            for(int j = 0; j< i; j++){
+                if(num[j] > num[i]){
                     dp[i] = Math.max(dp[j], dp[j] + 1);
-                }
+                } 
             }
         }
 
         Arrays.sort(dp);
-        System.out.print(dp[n]);
+        System.out.print(dp[n-1]);
     }
 }
