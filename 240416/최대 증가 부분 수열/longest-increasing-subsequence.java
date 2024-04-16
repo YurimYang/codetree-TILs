@@ -22,13 +22,20 @@ public class Main {
         for(int i = 1; i<n; i++){
             int max = Integer.MIN_VALUE;
             int idx = 0;
+            boolean isChanged = false;
             for(int j = 0; j<i; j++){
                 if(num[j] < num[i]){
                     max = Math.max(max, num[j]); 
                     idx = j;
+                    isChanged = true;
                 }  
             }
-            dp[i] = dp[idx] + 1;
+            if(isChanged){
+                dp[i] = dp[idx] + 1;
+            } else {
+                dp[i] = 0;
+            }
+            
         }
 
         Arrays.sort(dp);
