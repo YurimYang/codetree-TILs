@@ -20,7 +20,7 @@ public class Main {
             dp[i] = 1;
             for(int j = 0; j< i; j++){
                 if(num[j] > num[i]){
-                    dp[i] = Math.max(dp[j], dp[j] + 1);
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
                 } 
             }
         }
