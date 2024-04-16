@@ -21,7 +21,7 @@ public class Main {
 
         for(int i = 2; i<=n; i++){
             for(int j = 1; j< i; j++){
-                if(num[j] > num[i]){
+                if(num[j] >= num[i]){
                     dp[i] = Math.max(dp[j], dp[j] + 1);
                 }
             }
