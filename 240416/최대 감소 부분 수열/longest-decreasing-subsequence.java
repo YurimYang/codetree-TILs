@@ -17,12 +17,12 @@ public class Main {
             num[i] = Integer.parseInt(st.nextToken());
         }
 
-        dp[0] = 0;
+        dp[1] = 1;
 
-        for(int i = 1; i<n; i++){
-            for(int j = 0; j< i; j++){
+        for(int i = 2; i<=n; i++){
+            for(int j = 1; j< i; j++){
                 if(num[j] > num[i]){
-                    dp[j] = Math.max(dp[j], dp[j] + 1);
+                    dp[i] = Math.max(dp[j], dp[j] + 1);
                 }
             }
         }
