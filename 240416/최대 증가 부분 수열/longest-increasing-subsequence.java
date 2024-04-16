@@ -20,22 +20,11 @@ public class Main {
         dp[0] = 1;
 
         for(int i = 1; i<n; i++){
-            int max = Integer.MIN_VALUE;
-            int idx = 0;
-            boolean isChanged = false;
             for(int j = 0; j<i; j++){
                 if(num[j] < num[i]){
-                    max = Math.max(max, num[j]); 
-                    idx = j;
-                    isChanged = true;
-                }  
-            }
-            if(isChanged){
-                dp[i] = dp[idx] + 1;
-            } else {
-                dp[i] = 0;
-            }
-            
+                    dp[i] = Math.max(dp[i], dp[j] + 1); 
+                }
+            }            
         }
 
         Arrays.sort(dp);
