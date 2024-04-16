@@ -25,7 +25,10 @@ public class Main {
             }
         }
 
-        Arrays.sort(dp);
-        System.out.print(dp[n-1]);
+        int ans = 0;
+        for(int i = 0; i<n; i++){
+            ans = Math.max(ans, dp[i]);
+        }
+        System.out.print(ans);
     }
 }
