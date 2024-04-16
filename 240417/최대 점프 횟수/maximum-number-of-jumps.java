@@ -17,7 +17,7 @@ public class Main {
         }
 
         for(int i = 1; i<n; i++){
-            dp[i] = 0;
+            dp[i] = Integer.MIN_VALUE;
             for(int j = 0; j<i; j++){
                 if(i-j <= num[j]){
                     dp[i] = Math.max(dp[i], dp[j] + 1);
