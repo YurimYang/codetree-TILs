@@ -17,7 +17,7 @@ public class Main {
             num[i] = Integer.parseInt(st.nextToken());
         }
 
-        dp[0] = num[0];
+        dp[0] = 1;
 
         for(int i = 1; i<n; i++){
             int max = Integer.MIN_VALUE;
