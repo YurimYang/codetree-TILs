@@ -24,7 +24,7 @@ public class Main {
 
         for(int i = 1; i<m+1; i++){
             for(int j = 1; j<=n; j++){
-                if(i - coin[j] >= 0){
+                if(i >= coin[j]){
                     dp[i] = Math.min(dp[i], dp[i - coin[j]] + 1);
                 }
             }
