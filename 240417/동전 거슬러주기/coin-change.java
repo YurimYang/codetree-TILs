@@ -32,7 +32,7 @@ public class Main {
 
         int min = dp[m];
 
-        if(min == Integer.MAX_VALUE){
+        if(min == 10001){
             min = -1;
         }
 
