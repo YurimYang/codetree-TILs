@@ -23,7 +23,7 @@ public class Main {
         for(int i = 1; i<m+1; i++){
             initial(i);
             for(int j = 0; j<n; j++){
-                if(i - coin[j] == 0){
+                if(i - coin[j] >= 0){
                     dp[i] = Math.max(dp[i], dp[j] + 1);
                 }
     
