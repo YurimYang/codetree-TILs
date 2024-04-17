@@ -12,18 +12,18 @@ public class Main {
         n = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken());
 
-        coin = new int[n];
+        coin = new int[n+1];
         dp = new int[m+1];
 
         st = new StringTokenizer(br.readLine());    
-        for(int i = 0; i<n; i++){
+        for(int i = 1; i<=n; i++){
             coin[i] = Integer.parseInt(st.nextToken());
         }
 
         initial();
 
         for(int i = 1; i<m+1; i++){
-            for(int j = 0; j<n; j++){
+            for(int j = 1; j<=n; j++){
                 if(i - coin[j] >= 0){
                     dp[i] = Math.min(dp[i], dp[i - coin[j]] + 1);
                 }
@@ -40,7 +40,7 @@ public class Main {
     }
 
     public static void initial(){
-        for(int i = 1; i<m+1; i++){
+        for(int i = 0; i<=m; i++){
             dp[i] = Integer.MAX_VALUE;
         } 
 
