@@ -41,7 +41,7 @@ public class Main {
 
     public static void initial(){
         for(int i = 0; i<=m; i++){
-            dp[i] = Integer.MAX_VALUE;
+            dp[i] = 10001; // 동전의 금액의 최대가 10000원이므로 10001로 초기화한다. 
         } 
 
         dp[0] = 0;
