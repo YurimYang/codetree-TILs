@@ -4,12 +4,13 @@ import java.io.*;
 public class Main {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
+    static int n, m;
     static int[] coin, dp;
 
     public static void main(String[] args) throws IOException {
         st = new StringTokenizer(br.readLine());
-        int n = Integer.parseInt(st.nextToken());
-        int m = Integer.parseInt(st.nextToken());
+        n = Integer.parseInt(st.nextToken());
+        m = Integer.parseInt(st.nextToken());
 
         coin = new int[n];
         dp = new int[m+1];
@@ -19,27 +20,30 @@ public class Main {
             coin[i] = Integer.parseInt(st.nextToken());
         }
 
-        dp[0] = 0;
+        initial();
+
         for(int i = 1; i<m+1; i++){
-            initial(i);
             for(int j = 0; j<n; j++){
                 if(i - coin[j] >= 0){
-                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                    dp[i] = Math.min(dp[i], dp[i - coin[j]] + 1);
                 }
-    
             }
         }
 
-        int max = 0;
-        for(int i = 0; i<m+1; i++){
-            max = Math.max(max, dp[i]);
+        int min = dp[m];
+
+        if(min == Integer.MAX_VALUE){
+            min = -1;
         }
 
-        System.out.print(max);
+        System.out.print(min);
     }
 
-    public static void initial(int i){
-        dp[i] = Integer.MIN_VALUE;
-        
+    public static void initial(){
+        for(int i = 1; i<m+1; i++){
+            dp[i] = Integer.MAX_VALUE;
+        } 
+
+        dp[0] = 0;
     }
 }
