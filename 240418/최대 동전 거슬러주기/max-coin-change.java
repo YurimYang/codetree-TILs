@@ -24,6 +24,9 @@ public class Main {
         for(int i = 1; i<m+1; i++){
             for(int j = 0; j<n; j++){
                 if(i-coin[j] >=0){
+                    if(dp[i-coin[j]] == Integer.MIN_VALUE){
+                        continue;
+                    }
                     dp[i] = Math.max(dp[i], dp[i-coin[j]]+1);
                 }
             }
@@ -41,6 +44,7 @@ public class Main {
         for(int i = 1; i<m+1; i++){
             dp[i] = Integer.MIN_VALUE;
         }
+        dp[0] = 0;
     }
 
     
