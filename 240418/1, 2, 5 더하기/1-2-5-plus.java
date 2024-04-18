@@ -18,17 +18,13 @@ public class Main {
         for(int i = 1; i<n+1; i++){
             for(int j = 0; j<3; j++){
                 if(i - plus[j] >=0 ){
-                    dp[i] += dp[i - plus[j]];
+                    dp[i] += dp[i - plus[j]] % 10007;
                 }
             }
         }
 
         System.out.print(dp[n]);
-
-
-
     }
-
 
 
 }
