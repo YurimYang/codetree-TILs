@@ -30,7 +30,7 @@ public class Main {
         }
 
         int ans = dp[m];
-        if(ans == 0){
+        if(ans == Integer.MIN_VALUE){
             System.out.print(-1);
         }else{
             System.out.print(ans);
