@@ -20,6 +20,7 @@ public class Main {
         }
 
         dp = new int[m+1];
+        initial();
         for(int i = 1; i<m+1; i++){
             for(int j = 0; j<n; j++){
                 if(i-coin[j] >=0){
@@ -33,8 +34,14 @@ public class Main {
             System.out.print(-1);
         }else{
             System.out.print(ans);
-        }
-
-        
+        }    
     }
+
+    public static void initial(){
+        for(int i = 1; i<m+1; i++){
+            dp[i] = Integer.MIN_VALUE;
+        }
+    }
+
+    
 }
