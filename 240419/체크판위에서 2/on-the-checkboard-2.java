@@ -5,7 +5,6 @@ public class Main {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
     static String[][] grid;
-    static Queue<Point> q = new LinkedList<>();
     static int r,c;
 
     public static void main(String[] args) throws IOException {
@@ -14,7 +13,7 @@ public class Main {
         c = Integer.parseInt(st.nextToken());
 
         //grid 초기화
-        grid = new String[r+1][c+1];
+        grid = new String[r][c];
         for(int i = 0; i<r; i++){
             st = new StringTokenizer(br.readLine());
             for(int j = 0; j<c; j++){
@@ -22,39 +21,21 @@ public class Main {
             }
         }
 
-        q.add(new Point(0,0));
         int ans = 0;
 
-
-        while(!q.isEmpty()){
-            Point currPoint = q.poll();
-            int x = currPoint.x;
-            int y = currPoint.y;
-            for(int k = x+1; k<r; k++){
-                for(int z = y+1; z<c; z++){
-                    if(!grid[x][y].equals(grid[k][z])){
-                        q.add(new Point(k,z));
-                        if(k==r-1 && z ==c-1 && x !=0 && y!=0){
+        for(int i = 1; i<r; i++){
+            for(int j = 1; j<c; j++){
+                for(int k = i+1; k<r-1; k++){
+                    for(int z = j+1; z<c-1; z++){
+                        if(!grid[0][0].equals(grid[i][j]) && 
+                            !grid[i][j].equals(grid[k][z]) && 
+                            !grid[k][z].equals(grid[r-1][c-1])){
                             ans++;
-                        } 
-                    } 
+                        }
+                    }
                 }
             }
         }
-
-        System.out.print(ans);
-
-
-        
-    }
-}
-
-class Point{
-    int x;
-    int y;
-
-    public Point(int x, int y){
-        this.x = x;
-        this.y = y;
+        System.out.print(ans);   
     }
 }
