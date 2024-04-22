@@ -6,6 +6,7 @@ public class Main {
     static StringTokenizer st;
     static int n,m,answer = 0;
     static int[][] grid;
+    static int[] seq;
 
     public static void main(String[] args) throws IOException {
         st = new StringTokenizer(br.readLine());
@@ -30,12 +31,16 @@ public class Main {
     public static void countNumberByRow(){
         for(int i = 0; i<n; i++){
             int duplicate = 1;
+            int maxCount = 1;
             for(int j = 0; j<n-1; j++){
                 if(grid[i][j] == grid[i][j+1]){
                     duplicate++;
+                } else {
+                    duplicate = 1;
                 }
+                maxCount = Math.max(maxCount,duplicate);
             }
-            if(duplicate >= m){
+            if(maxCount >= m){
                 answer++;
             }
 
@@ -46,12 +51,16 @@ public class Main {
     public static void countNumberByCol(){
         for(int j = 0; j<n; j++){
             int duplicate = 1;
+            int maxCount = 1;
             for(int i = 0; i<n-1; i++){
                 if(grid[i][j] == grid[i+1][j]){
                     duplicate++;
+                } else {
+                    duplicate = 1;
                 }
+                maxCount = Math.max(maxCount,duplicate);
             }
-            if(duplicate >= m){
+            if(maxCount >= m){
                 answer++;
             }
         }
