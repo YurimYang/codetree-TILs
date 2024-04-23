@@ -18,20 +18,31 @@ public class Main {
         int len = newLine.length;
         int[] sentence = new int[len];
 
+
+        int r = -1;
+        int p = -1; 
         for(int i = 0; i<len; i++){
-            sentence[i] = 0;
+            if(r<i){
+                sentence[i] = 0;
+            } else {
+                int ii = 2 * p - i;
+                sentence[i] = Math.min(r-i, sentence[ii]);
+            }
             while(i-sentence[i] - 1 >= 0 && i+sentence[i] + 1<len 
                     && newLine[i-sentence[i]-1] == newLine[i+sentence[i] +1]){
                 sentence[i]++;
+            }
+            if(i+sentence[i] > r){
+                r = i+ sentence[i];
+                p = i;
             }
         }
 
         int max = 0;
         for(int i = 0; i<len; i++){
-            //System.out.println(sentence[i]);
-            max = Math.max(max, sentence[i]);
+            max = Math.max(max, 2 * sentence[i] + 1);
         }
         
-        System.out.println(max);
+        System.out.println(max/2);
     }
 }
