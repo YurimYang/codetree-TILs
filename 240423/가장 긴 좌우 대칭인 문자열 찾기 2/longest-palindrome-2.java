@@ -7,15 +7,15 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         char[] line = br.readLine().toCharArray();
-        char[] newLine= new char[2*line.length];
-        for(int i = 0; i<line.length * 2; i++){
+        char[] newLine= new char[2*line.length+1];
+        for(int i = 0; i<line.length * 2 + 1; i++){
             if(i%2 == 0){
                 newLine[i] = '#';
             } else {
                 newLine[i] = line[i / 2];
             }
         }
-        int len = newLine.length;
+        int len = line.length * 2 + 1;
         int[] sentence = new int[len];
 
 
