@@ -14,8 +14,8 @@ public class Main {
 
         for(int i = 0; i<k; i++){
             st = new StringTokenizer(br.readLine());
-            int a = n = Integer.parseInt(st.nextToken());
-            int b = n = Integer.parseInt(st.nextToken());
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
             for(int dir = a; dir<=b; dir++){
                 blocks[dir]++;
             }
