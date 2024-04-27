@@ -14,8 +14,13 @@ public class Main {
     }
 
     public static int findHowLongChanged(int day, int hour, int min){
+        int firstTimeChange = findHowTimeChanged(11,11);
+        if(firstTimeChange > findHowTimeChanged(hour,min)) {
+            day-=1;
+            hour += 24;
+        } 
         int days = (day - 11) * 60 * 24;
-        int times = Math.abs(findHowTimeChanged(11,11) - findHowTimeChanged(hour,min));
+        int times = Math.abs(firstTimeChange - findHowTimeChanged(hour,min));
         return days + times;
     }
 
