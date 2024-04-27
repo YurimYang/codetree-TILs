@@ -22,7 +22,7 @@ public class Main {
         int days = (day - 11) * 60 * 24;
         int times = Math.abs(firstTimeChange - findHowTimeChanged(hour,min));
         int answer = days + times;
-        if(answer > 0){
+        if(answer >= 0){
             return answer;
         } else {
             return -1;
