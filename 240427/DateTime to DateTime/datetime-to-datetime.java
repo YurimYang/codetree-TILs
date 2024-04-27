@@ -21,7 +21,12 @@ public class Main {
         } 
         int days = (day - 11) * 60 * 24;
         int times = Math.abs(firstTimeChange - findHowTimeChanged(hour,min));
-        return days + times;
+        int answer = days + times;
+        if(answer > 0){
+            return answer;
+        } else {
+            return -1;
+        }
     }
 
     public static int findHowTimeChanged(int hour, int min){
