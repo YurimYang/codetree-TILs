@@ -15,17 +15,10 @@ public class Main {
         int d2 = Integer.parseInt(st.nextToken());
         int firstChange = howLongMDChanged(m1,d1);
         int secChange = howLongMDChanged(m2,d2);
-
-
         int diff = secChange - firstChange;
-        System.out.println(secChange);
-        System.out.println(secChange);
-
-
         while(diff<0){
             diff += 7;
         }
-        System.out.print(diff);
         System.out.print(dayOfWeek[diff % 7]); 
     }
 
