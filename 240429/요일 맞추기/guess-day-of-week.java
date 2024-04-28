@@ -18,16 +18,20 @@ public class Main {
 
 
         int diff = secChange - firstChange;
+        System.out.println(secChange);
+        System.out.println(secChange);
+
 
         while(diff<0){
             diff += 7;
         }
+        System.out.print(diff);
         System.out.print(dayOfWeek[diff % 7]); 
     }
 
     public static int howLongMDChanged(int month, int day){
         int days = 0;
-        for(int i = 1; i<month; i++){
+        for(int i = 0; i<month; i++){
             days += dayOfMonth[i];
         }
         days += day;
