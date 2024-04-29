@@ -24,12 +24,10 @@ public class Main {
 
     public static int recArea(int x1, int y1, int x2, int y2){
         int answer = 0;
-        if(x1 < 0 || y1 < 0 || x2 < 0 || y2 < 0){
-            x1 += offset;
-            y1 += offset;
-            x2 += offset;
-            y2 += offset;
-        }
+        x1 += offset;
+        y1 += offset;
+        x2 += offset;
+        y2 += offset;
         for(int i = y1; i<y2; i++){
             for(int j = x1; j<x2; j++){
                 if(grid[j][i] == 0){
