@@ -22,34 +22,36 @@ public class Main {
             }
         }
         System.out.println(findDuplicatePlace());
+        //System.out.println(curr);
     }
     //오른쪽 이동
     public static int goRight(int curr, int x){
         for(int i = curr; i< curr+x; i++){
-            grid.put(i+1, grid.getOrDefault(i+1, 0) + 1);
+            grid.put(i, grid.getOrDefault(i+1, 0) + 1);
         }
         curr += x;
+        System.out.println("R curr: " + curr);
         return curr;
     }
 
     //왼쪽 이동
     public static int goLeft(int curr, int x){
         for(int i = curr; i> curr - x; i--){
-            grid.put(i-1, grid.getOrDefault(i-1,0) + 1);
+            grid.put(i, grid.getOrDefault(i,0) + 1);
         }
         curr -= x;
+
+        System.out.println("L curr: " + curr);
         return curr;
     }
 
     //중복된 위치 찾기 
     public static int findDuplicatePlace(){
         int answer = 0;
-        List<Integer> keySet = new ArrayList<>(grid.keySet());
-        Collections.sort(keySet);
-        for(int key :keySet){
-            if(grid.get(key) > 1){
-                answer ++;
-            } 
+        for (int count : grid.values()) {
+            if (count > 1) {
+                answer++;
+            }
         }
         return answer;
     }
