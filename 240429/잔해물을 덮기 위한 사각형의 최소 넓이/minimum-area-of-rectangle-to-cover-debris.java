@@ -16,7 +16,12 @@ public class Main {
             int y2 = Integer.parseInt(st.nextToken());
             createRec(i+1, x1+offset, y1+offset, x2+offset, y2+offset);
         }
-        System.out.println(findFristRec());
+        if(isFirstRec()){
+            System.out.println(findFristRec());
+        } else {
+            System.out.println(0);
+        }
+        
         
     }
     public static void createRec(int num, int x1, int y1, int x2, int y2){
@@ -27,6 +32,17 @@ public class Main {
                 } 
             }
         }
+    }
+
+    public static boolean isFirstRec(){
+        for(int i = 0; i<2000; i++){
+            for(int j = 0; j<2000; j++){
+                if(grid[i][j] == 1){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public static int findFristRec(){
