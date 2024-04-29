@@ -4,8 +4,8 @@ import java.io.*;
 public class Main {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
-    static int[][] grid = new int[100][100];
-    static int offset = 100;
+    static int[][] grid = new int[1000][1000];
+    static int offset = 200;
     //static int x1, y1, x2, y2;
 
     public static void main(String[] args) throws IOException {
