@@ -25,8 +25,8 @@ public class Main {
     }
     //오른쪽 이동
     public static int goRight(int curr, int x){
-        for(int i = curr; i< curr+x+1; i++){
-            grid.put(i, grid.getOrDefault(i, 0) + 1);
+        for(int i = curr; i< curr+x; i++){
+            grid.put(i+1, grid.getOrDefault(i+1, 0) + 1);
         }
         curr += x;
         return curr;
@@ -34,8 +34,8 @@ public class Main {
 
     //왼쪽 이동
     public static int goLeft(int curr, int x){
-        for(int i = curr; i> curr - x - 1; i--){
-            grid.put(i, grid.getOrDefault(i,0) + 1);
+        for(int i = curr; i> curr - x; i--){
+            grid.put(i-1, grid.getOrDefault(i-1,0) + 1);
         }
         curr -= x;
         return curr;
@@ -44,21 +44,13 @@ public class Main {
     //중복된 위치 찾기 
     public static int findDuplicatePlace(){
         int answer = 0;
-        boolean isMaintain = false;
-        int cnt = 0;
         List<Integer> keySet = new ArrayList<>(grid.keySet());
         Collections.sort(keySet);
         for(int key :keySet){
             if(grid.get(key) > 1){
                 answer ++;
-                isMaintain = true;
-            } else if (grid.get(key) == 1 && isMaintain){
-                cnt++;
-                isMaintain = false;
-            } else {
-                isMaintain = false;
-            }
+            } 
         }
-        return answer - cnt - 1;
+        return answer;
     }
 }
