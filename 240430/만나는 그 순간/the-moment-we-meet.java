@@ -13,8 +13,8 @@ public class Main {
         int m = Integer.parseInt(st.nextToken()); // b 움직임 횟수
 
         //배열 초기화
-        movementA = new int[20];
-        movementB = new int[20];
+        movementA = new int[1000];
+        movementB = new int[1000];
 
         //움직임 기록
         int[] movedA = getMovement(movementA, n);
