@@ -14,7 +14,7 @@ public class Main {
 
         //배열 초기화
         movementA = new int[1000000];
-        movementB = new int[1000000];
+        movementB = new int[1000000]; //1,000 * 1,000 
 
         //움직임 기록
         int[] movedA = getMovement(movementA, n);
