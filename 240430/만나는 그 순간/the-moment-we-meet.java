@@ -13,12 +13,20 @@ public class Main {
         int m = Integer.parseInt(st.nextToken()); // b 움직임 횟수
 
         //배열 초기화
-        movementA = new int[1000];
-        movementB = new int[1000];
+        movementA = new int[20];
+        movementB = new int[20];
 
         //움직임 기록
         int[] movedA = getMovement(movementA, n);
         int[] movedB = getMovement(movementB, m);
+
+        // for(int i = 0; i<movedA.length; i++){
+        //     System.out.print(movedA[i] + " ");
+        // }
+        // System.out.println();
+        // for(int i = 0; i<movedB.length; i++){
+        //     System.out.print(movedB[i] + " ");
+        // }
 
         //a,b 기록 확인
         System.out.print(samePlace(movedA, movedB));
@@ -49,12 +57,12 @@ public class Main {
     }
 
     public static int samePlace(int[] movedA, int[] movedB){
-        int maxLength = Math.max(movedA.length, movedB.length);
-        for(int i = 1; i<maxLength; i++){
-            if(movedA[i] == movedB[i]){
+        int minLength = Math.min(movedA.length, movedB.length);
+        for(int i = 1; i<minLength; i++){
+            if((movedA[i] == movedB[i]) && movedA[i] != 0 && movedB[i] != 0){
                 return i;
             }
         }
-        return 0;
+        return -1;
     }
 }
