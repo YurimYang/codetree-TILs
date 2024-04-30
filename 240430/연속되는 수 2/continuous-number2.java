@@ -17,12 +17,16 @@ public class Main {
 
         //동일한 숫자가 나오는 횟수 찾기
         int duplicateCnt = 0;
+        int maxCnt = Integer.MIN_VALUE;
         for(int i = 0; i<n; i++){
-            if(i == 0 || numbers[i] != numbers[i-1]){
+            if(i == 0 || numbers[i] == numbers[i-1]){
                 duplicateCnt++;
+            } else {
+                duplicateCnt = 1;
             }
+            maxCnt = Math.max(maxCnt, duplicateCnt);
         }
 
-        System.out.print(duplicateCnt);
+        System.out.print(maxCnt);
     }
 }
