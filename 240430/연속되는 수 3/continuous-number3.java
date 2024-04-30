@@ -20,7 +20,7 @@ public class Main {
         int duplicateCnt = 0;
         for(int i = 0; i<n; i++){
             if(i == 0 || (numbers[i] < 0 && numbers[i-1] < 0) 
-                ||  (numbers[i] > 0 && numbers[i-1] > 0)) {
+                ||  (numbers[i] > 0 && numbers[i-1] > 0)) { //numbers[i] * numbers[i-1] > 0 으로 작성해도됨 !!! 
                     duplicateCnt++;
             } else {
                 duplicateCnt = 1;
