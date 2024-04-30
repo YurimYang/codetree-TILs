@@ -17,6 +17,7 @@ public class Main {
 
         //연속 부분 수열 구하기
         int numberGrwoth = 0;
+        int maxGrwoth = 0;
         for(int i = 0; i<n; i++){
             if(i == 0 || numbers[i] > numbers[i-1]){
                 numberGrwoth++;
@@ -25,7 +26,8 @@ public class Main {
             } else {
                 numberGrwoth = 1;
             }
+            maxGrwoth = Math.max(maxGrwoth, numberGrwoth);
         }
-        System.out.print(numberGrwoth); 
+        System.out.print(maxGrwoth); 
     }
 }
