@@ -12,7 +12,7 @@ public class Main {
         int m = Integer.parseInt(st.nextToken());
 
         //움직임 초기화
-        moveA = new int[1000000];
+        moveA = new int[1000001];
 
         int startA = 1;
         for(int i = 0; i<n; i++){
@@ -29,7 +29,7 @@ public class Main {
             startA += t;
         }
 
-        moveB = new int[1000000]; 
+        moveB = new int[1000001]; 
         int startB = 1;
         for(int i = 0; i<m; i++){
             st = new StringTokenizer(br.readLine());
