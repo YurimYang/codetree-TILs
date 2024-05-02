@@ -13,23 +13,51 @@ public class Main {
 
         //움직임 초기화
         moveA = new int[50000];
-        moveB = new int[50000];
-        int[] movedA = movement(moveA, n).move;
-        int startA = movement(moveA, n).start;
-        for(int i = 0; i<15; i++){
-            System.out.println("A" + i + " : " + movedA[i]);
-        }
-        int[] movedB = movement(moveB, n).move;
-        int startB = movement(moveB, n).start;
 
-        for(int i = 0; i<15; i++){
-            System.out.println("B" + i + " : " + movedB[i]);
+        int startA = 1;
+        for(int i = 0; i<n; i++){
+            st = new StringTokenizer(br.readLine());
+            int t = Integer.parseInt(st.nextToken());
+            String d = st.nextToken(); //t초만큼 방향 d로 이동
+            for(int j = startA; j < startA + t; j++){
+                if(d.equals("L")){
+                    moveA[j] = moveA[j-1] - 1;   
+                }else if(d.equals("R")){
+                    moveA[j] = moveA[j-1] + 1;                   
+                }
+            } 
+            startA += t;
         }
 
-        System.out.println(countMeetCnt(movedA, movedB, Math.min(startA, startB)));  
+        moveB = new int[50000]; 
+        int startB = 1;
+        for(int i = 0; i<m; i++){
+            st = new StringTokenizer(br.readLine());
+            int t = Integer.parseInt(st.nextToken());
+            String d = st.nextToken(); //t초만큼 방향 d로 이동
+            for(int j = startB; j < startB + t; j++){
+                if(d.equals("L")){
+                    moveB[j] = moveB[j-1] - 1;   
+                }else if(d.equals("R")){
+                    moveB[j] = moveB[j-1] + 1;                   
+                }
+            } 
+            startB += t;
+        }
+
+        if(startA < startB) {
+            for(int i = startA; i<startB; i++){
+                moveA[i] = moveA[i-1];
+            }
+        } else {
+            for(int i = startB; i<startA; i++){
+                moveB[i] = moveB[i-1];
+            }
+        }
+        System.out.println(countMeetCnt(moveA, moveB, Math.max(startA, startB)));  
     }
 
-    public static tmp movement(int[] move, int times) throws IOException{
+    public static int[] movement(int[] move, int times) throws IOException{
         int start = 1;
         for(int i = 0; i<times; i++){
             st = new StringTokenizer(br.readLine());
@@ -43,31 +71,18 @@ public class Main {
                 }
             } 
             start += t;
-
         }
-        return tmp(start, move);
+        return move;
     }
 
     public static int countMeetCnt(int[] moveA, int[] moveB, int len){
         int answer = 0; 
-        for(int i = 1; i<len; i++){
+        for(int i = 2; i<len; i++){
             if(moveA[i] == moveB[i] && moveA[i-1] != moveB[i-1]){
-                System.out.println(i +"," +moveA[i] +"," + moveB[i]);
-
                 answer++;
             }
         }
         return answer;
     } 
 
-}
-
-class tmp{
-    int times;
-    int[] move;
-
-    public tmp(int times, int[] move){
-        this.times = times;
-        this.move = move;
-    }
 }
