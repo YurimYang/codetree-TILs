@@ -16,14 +16,7 @@ public class Main {
         moveA = new int[MAX];
         moveB = new int[MAX];
         int[] movedA = movement(n, moveA);
-        // for(int i = 0 ;i<30; i++){
-        //     System.out.print(movedA[i] +" ");
-        // }
         int[] movedB = movement(m, moveB);
-        // System.out.println("----------------------------===============================================");
-        // for(int i = 0 ;i<30; i++){
-        //     System.out.print(movedB[i] +" ");
-        // }
 
         //선두 여부 확인
         System.out.println(isFaster(movedA, movedB));
@@ -52,17 +45,14 @@ public class Main {
         } else {
            fastFirst = "B";
         }
-        //System.out.println(fastFirst);
         
         for(int i = 1; i<min; i++){
             if(fastFirst.equals("A") && moveB[i] > moveA[i]){
                 fastFirst = "B";
                 answer++;
-                // System.out.println(i);
             } else if (fastFirst.equals("B") && moveB[i] < moveA[i]){
                 fastFirst = "A";
                 answer++;
-                // System.out.println(i);
             }
         }
         return answer;
