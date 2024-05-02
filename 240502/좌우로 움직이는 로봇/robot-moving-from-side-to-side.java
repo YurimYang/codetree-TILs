@@ -14,19 +14,22 @@ public class Main {
         //움직임 초기화
         moveA = new int[50000];
         moveB = new int[50000];
-        int[] movedA = movement(moveA, n);
-        // for(int i = 0; i<15; i++){
-        //     System.out.println("A" + i + " : " + movedA[i]);
-        // }
-        int[] movedB = movement(moveB, m);
-        // for(int i = 0; i<15; i++){
-        //     System.out.println("B" + i + " : " + movedB[i]);
-        // }
+        int[] movedA = movement(moveA, n).move;
+        int startA = movement(moveA, n).start;
+        for(int i = 0; i<15; i++){
+            System.out.println("A" + i + " : " + movedA[i]);
+        }
+        int[] movedB = movement(moveB, n).move;
+        int startB = movement(moveB, n).start;
 
-        System.out.println(countMeetCnt(movedA, movedB));  
+        for(int i = 0; i<15; i++){
+            System.out.println("B" + i + " : " + movedB[i]);
+        }
+
+        System.out.println(countMeetCnt(movedA, movedB, Math.min(startA, startB)));  
     }
 
-    public static int[] movement(int[] move, int times) throws IOException{
+    public static tmp movement(int[] move, int times) throws IOException{
         int start = 1;
         for(int i = 0; i<times; i++){
             st = new StringTokenizer(br.readLine());
@@ -40,27 +43,31 @@ public class Main {
                 }
             } 
             start += t;
+
         }
-        return move;
+        return tmp(start, move);
     }
 
-    public static int countMeetCnt(int[] moveA, int[] moveB){
+    public static int countMeetCnt(int[] moveA, int[] moveB, int len){
         int answer = 0; 
-        int length = Math.min(countLength(moveA),countLength(moveB));
-        for(int i = 1; i<moveA.length; i++){
+        for(int i = 1; i<len; i++){
             if(moveA[i] == moveB[i] && moveA[i-1] != moveB[i-1]){
+                System.out.println(i +"," +moveA[i] +"," + moveB[i]);
+
                 answer++;
             }
         }
         return answer;
     } 
 
-    public static int countLength(int[] move){
-        for(int i = 1; i<move.length; i++){
-            if(move[i] == 0 && move[i-1] != 0){
-                return i-1;
-            }
-        }
-        return 0;
+}
+
+class tmp{
+    int times;
+    int[] move;
+
+    public tmp(int times, int[] move){
+        this.times = times;
+        this.move = move;
     }
 }
