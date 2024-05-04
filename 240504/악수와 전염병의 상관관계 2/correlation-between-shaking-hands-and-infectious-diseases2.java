@@ -39,13 +39,21 @@ public class Main {
                 for(int z = 1; z<N+1; z++){
                     if(isAddicted[z] == 1 && situation[j].x == z  && limit[z] < K){
                         limit[z]++;
-                        limit[situation[j].y]++;
+                        //limit[situation[j].y]++;
                         isAddicted[situation[j].y] = 1;
+                        // System.out.println("first limit" + "z : " + z + "j: "+  j);
+                        // print(limit);
+                        // System.out.println("first : isAddicted");
+                        // print(isAddicted);
                         break;
                     } else if(isAddicted[z] == 1 && situation[j].y == z  && limit[z] < K){
                         limit[z]++;
-                        limit[situation[j].x]++;
+                        //limit[situation[j].x]++;
                         isAddicted[situation[j].x] = 1;
+                        // System.out.println("second limit");
+                        // print(limit);
+                        // System.out.println("Second : isAddicted");
+                        // print(isAddicted);
                         break;
                     }  
                 }
