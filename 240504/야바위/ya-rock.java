@@ -18,16 +18,20 @@ public class Main {
 
         }
 
+        int finalAnswer = Integer.MIN_VALUE;
         cups = new int[4];
-        int finalAnswer = 0;
         for(int target = 1; target<4; target++){
             int answer = 0;
+            cups[1] = 1;
+            cups[2] = 2;
+            cups[3] = 3;
             for(change cup : cupList){
-                cups[cup.y] = cup.x;
-                cups[cup.x] = cup.y;
+                int tmp = cups[cup.y];
+                cups[cup.y] = cups[cup.x];
+                cups[cup.x] = tmp;
                 if(cups[cup.open] == target){
                     answer++;
-                }
+                } 
             }
             finalAnswer = Math.max(finalAnswer, answer);
         }
