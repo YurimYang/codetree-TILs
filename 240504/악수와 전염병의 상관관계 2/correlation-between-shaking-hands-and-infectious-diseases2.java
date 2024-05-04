@@ -45,7 +45,7 @@ public class Main {
                         // print(limit);
                         // System.out.println("first : isAddicted");
                         // print(isAddicted);
-                        break;
+                        //break;
                     } else if(isAddicted[z] == 1 && situation[j].y == z  && limit[z] <= K && limit[situation[j].x] <=K){
                         limit[z]++;
                         limit[situation[j].x]++;
@@ -54,7 +54,7 @@ public class Main {
                         // print(limit);
                         // System.out.println("Second : isAddicted");
                         // print(isAddicted);
-                        break;
+                        //break;
                     }  
                 }
             }
