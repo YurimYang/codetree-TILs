@@ -12,13 +12,14 @@ public class Main {
         n = Integer.parseInt(br.readLine());
         nums = new int[n];
         dp = new int[n];
-        int maxAns = Integer.MIN_VALUE;
+        
         st = new StringTokenizer(br.readLine());
         for(int i = 0; i<n; i++){
             nums[i] = Integer.parseInt(st.nextToken());
         }
 
         initialize();
+        int maxAns = dp[0];
 
         for(int i = 1; i<n; i++){
             dp[i] = Math.max(nums[i] + dp[i-1], nums[i]);
