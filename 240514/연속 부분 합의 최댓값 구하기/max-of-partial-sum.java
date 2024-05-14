@@ -12,7 +12,7 @@ public class Main {
         n = Integer.parseInt(br.readLine());
         nums = new int[n];
         dp = new int[n];
-        int maxAns = 0;
+        int maxAns = Integer.MIN_VALUE;
         st = new StringTokenizer(br.readLine());
         for(int i = 0; i<n; i++){
             nums[i] = Integer.parseInt(st.nextToken());
