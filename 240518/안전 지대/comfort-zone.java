@@ -5,8 +5,7 @@ public class Main {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
     static int n, m;
-    static int[][] grid, visited;
-    
+    static int[][] grid, visited;    
 
     public static void main(String[] args) throws IOException {
         st = new StringTokenizer(br.readLine());
@@ -43,9 +42,12 @@ public class Main {
                     }
                 }
             }
+            // if(target > 60){
             // System.out.println("Target : " + target + " answer : " + answer);
-            maxAns = Math.max(maxAns, answer);
-            if(maxAns == answer){
+            // }
+
+            if(answer > maxAns){
+                maxAns = answer;
                 maxTarget = target;
             }
         }
