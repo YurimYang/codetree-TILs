@@ -24,8 +24,6 @@ public class Main {
             }
         }
 
-        //  System.out.println("maxNum: " + maxNum);
-
         //target 돌리기
         visited = new int[n][m];
         int maxAns = Integer.MIN_VALUE;
@@ -42,10 +40,8 @@ public class Main {
                     }
                 }
             }
-            // if(target > 60){
-            // System.out.println("Target : " + target + " answer : " + answer);
-            // }
 
+            //max값을 찾을 때, 꼭 Math.max를 사용하지않더라도 ! 2개를 구해야하면 이런 방식을 사용해보자.
             if(answer > maxAns){
                 maxAns = answer;
                 maxTarget = target;
