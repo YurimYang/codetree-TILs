@@ -56,7 +56,6 @@ public class Main {
                 visited[i][j] = 0;
             }
         }
-
         points = new ArrayList<>();
     }
 
@@ -78,7 +77,6 @@ public class Main {
                 if(canGo(nx, ny, firstNum)){
                     visited[nx][ny] = 1;
                     Point nextPoint = new Point(nx, ny, grid[nx][ny]);
-                    //System.out.println("points : " + nextPoint.x + ", " + nextPoint.y + ", " + nextPoint.num);
                     queue.add(nextPoint);
                     points.add(nextPoint);
                 }
