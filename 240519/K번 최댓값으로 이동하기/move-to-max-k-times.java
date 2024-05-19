@@ -34,16 +34,20 @@ public class Main {
         visited[x][y] = 1;
         startPointList.add(startPoint);
 
+        Point answerPoint = new Point();
+
         for(int i = 0; i<k; i++){
             Point nextStartPoint = BFS();
+            if(nextStartPoint.x == 0 && nextStartPoint.y == 0 && nextStartPoint.num == 0){
+                answerPoint = startPointList.get(k-1); 
+                break;
+            }
             startPointList.add(nextStartPoint);
             queue.add(nextStartPoint);
             initial();
+            answerPoint = startPointList.get(i+1);
         }
-
-        System.out.println(startPointList.get(k).x + " " + startPointList.get(k).y);
-        
-
+        System.out.println(answerPoint.x + " " + answerPoint.y);
     }
     
     public static void initial(){
@@ -71,7 +75,6 @@ public class Main {
                 int nx = currPoint.x + dx[i];
                 int ny = currPoint.y + dy[i];
                 
-
                 if(canGo(nx, ny, firstNum)){
                     visited[nx][ny] = 1;
                     Point nextPoint = new Point(nx, ny, grid[nx][ny]);
@@ -82,10 +85,12 @@ public class Main {
             }
         }
 
-        Collections.sort(points);
-        return points.get(0);
-
-
+        if(points.size() > 0){
+            Collections.sort(points);
+            return points.get(0);
+        } else{
+            return new Point(0,0,0);
+        }
     }
 
     public static boolean canGo(int x, int y, int firstNum){
@@ -106,6 +111,10 @@ class Point implements Comparable<Point>{
     int x;
     int y;
     int num;
+
+    public Point(){
+
+    }
 
     public Point(int x, int y, int num){
         this.x = x;
