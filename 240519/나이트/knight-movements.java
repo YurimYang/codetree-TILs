@@ -33,7 +33,7 @@ public class Main {
         //     }
         // }
 
-        if(step[r2][c2] > 0){
+        if(step[r2][c2] >= 0){
             System.out.println(step[r2][c2]);
         } else{
             System.out.println(-1);
