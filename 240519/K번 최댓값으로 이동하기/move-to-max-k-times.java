@@ -39,7 +39,7 @@ public class Main {
         for(int i = 0; i<k; i++){
             Point nextStartPoint = BFS();
             if(nextStartPoint.x == 0 && nextStartPoint.y == 0 && nextStartPoint.num == 0){
-                answerPoint = startPointList.get(k-1); 
+                answerPoint = startPointList.get(i); 
                 break;
             }
             startPointList.add(nextStartPoint);
