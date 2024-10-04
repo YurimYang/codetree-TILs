@@ -34,7 +34,6 @@ public class Main {
         visited[vertex] = true;
         for(int col = 1; col <=n; col++){
             if(numbers[vertex][col] == 1 && !visited[col]){
-                System.out.println(vertex + " : " + col);
                 visited[vertex] = true;
                 ans++; 
                 dfs(col); 
