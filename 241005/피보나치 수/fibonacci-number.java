@@ -6,7 +6,7 @@ public class Main {
     static int[] fibo;
     public static void main(String[] args) throws IOException{
         int n = Integer.parseInt(br.readLine());
-        fibo = new int[n+1];
+        fibo = new int[46];
 
         fibo[1] = 1;
         fibo[2] = 1;
