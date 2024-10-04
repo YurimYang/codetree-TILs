@@ -3,20 +3,17 @@ import java.io.*;
 
 public class Main {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static int[] fibo;
     public static void main(String[] args) throws IOException{
         int n = Integer.parseInt(br.readLine());
+        fibo = new int[n+1];
 
-        if(n<=2){
-            System.out.println(1);
-        } else {
-            System.out.println(fibo(n));
+        fibo[1] = 1;
+        fibo[2] = 1;
+        for(int i = 3; i<=n; i++){
+            fibo[i] = fibo[i-1] + fibo[2];
         }
-    }
 
-    public static int fibo(int n){
-        if(n <= 2){
-            return 1;
-        }
-        return fibo(n-1) + fibo(n-2);
+        System.out.println(fibo[n]);
     }
 }
