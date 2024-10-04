@@ -25,7 +25,7 @@ public class Main {
         queue.add(new Point(0,0));
         visited[0][0] = 1;
         bfs();
-        if(graph[n-1][m-1] == 1){
+        if(visited[n-1][m-1] == 1){
             System.out.println(1);
         } else {
             System.out.println(0);
