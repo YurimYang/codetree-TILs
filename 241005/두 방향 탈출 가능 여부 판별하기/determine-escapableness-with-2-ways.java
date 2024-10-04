@@ -46,6 +46,9 @@ public class Main {
             if(canGo(nx, ny)){
                 visited[nx][ny] = 1;
                 dfs(nx, ny);
+                nx -= dx[i];
+                ny -= dy[i];
+                visited[nx][ny] = 0;
             }
         }
     }
