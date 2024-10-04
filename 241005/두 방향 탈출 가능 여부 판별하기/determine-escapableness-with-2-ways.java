@@ -21,13 +21,14 @@ public class Main {
             }
         }
 
+        visited[0][0] = 1;
         dfs(0,0);
         System.out.println(answer);
 
     }
 
     public static void dfs(int x, int y){
-        int[] dx = {-1, 0}; //하 우
+        int[] dx = {1, 0}; //하 우
         int[] dy = {0, 1};
 
 
@@ -45,7 +46,6 @@ public class Main {
             if(canGo(nx, ny)){
                 visited[nx][ny] = 1;
                 dfs(nx, ny);
-                visited[nx][ny] = 0;
             }
         }
     }
