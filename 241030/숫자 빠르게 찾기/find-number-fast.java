@@ -18,35 +18,27 @@ public class Main {
             numList.add(Integer.parseInt(num));
         }
 
-        Collections.sort(numList);
-
         for(int i = 0; i<m; i++){
             int number = Integer.parseInt(br.readLine());
 
-            int index = Collections.binarySearch(numList, number);
-            if(index >= 0){
-                System.out.println(index + 1 );
-            } else {
-                System.out.println(-1);
+            long s = 0;
+            long e = n-1;
+
+            long answer = -1;
+            while(s <= e){
+                long mid = (s+e) / 2;
+                if(number == numList.get((int) mid)){
+                    answer = mid + 1;
+                    break;
+                }
+                else if(number > numList.get((int) mid)){ 
+                    s = mid + 1;
+                } else {
+                    e = mid-1;
+                }
             }
 
-            // long s = (long) numList.get(0);
-            // long e = (long) numList.get(numList.size()-1);
-
-            // long answer = -1;
-            // while(s <= e){
-            //     long mid = (s+e) / 2;
-            //     if(number == mid){
-            //         answer = numList.indexOf(mid) + 1;
-            //     }
-            //     else if(number > mid){ 
-            //         s = mid + 1;
-            //     } else {
-            //         e = mid-1;
-            //     }
-            // }
-
-            // System.out.println(answer);
+            System.out.println(answer);
         }
     }
 }
