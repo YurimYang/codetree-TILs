@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
-        int answer = 0;
+        int count = 1;
         PriorityQueue<Meeting> pq = new PriorityQueue<>((o1, o2) -> {
             if(o1.s == o2.s){
                 return o1.e - o2.e;
@@ -24,11 +24,12 @@ public class Main {
         while(!pq.isEmpty()){
             Meeting m = pq.poll();
 
-            if(!pq.isEmpty() && m.e > pq.peek().s) {
-                answer++;
-            }
+            if(!pq.isEmpty() && m.e <= pq.peek().s) {
+                //System.out.println(m.s + " : " + m.e);
+                count++;
+            } 
         }
-        System.out.println(answer);
+        System.out.println(n - count);
     }
 }
 
