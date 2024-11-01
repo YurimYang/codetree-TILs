@@ -21,14 +21,8 @@ public class Main {
         int answer = 0;
         while(!pq.isEmpty()){
             int curr = pq.poll();
-
-            if(curr > k) {
-                break;
-            }
-            int cnt = 0;
-            cnt += k / curr;
-            k -= cnt * curr;
-            answer += cnt;
+            answer += k / curr;
+            k %= curr;
         }
         System.out.println(answer);
     }
