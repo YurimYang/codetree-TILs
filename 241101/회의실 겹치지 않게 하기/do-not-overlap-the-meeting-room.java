@@ -7,6 +7,9 @@ public class Main {
         StringTokenizer st;
         int answer = 0;
         PriorityQueue<Meeting> pq = new PriorityQueue<>((o1, o2) -> {
+            if(o1.s == o2.s){
+                return o1.e - o2.e;
+            }
             return o1.s - o2.s;
         });
 
