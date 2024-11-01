@@ -7,7 +7,7 @@ public class Main {
         StringTokenizer st;
         int answer = 0;
         PriorityQueue<Meeting> pq = new PriorityQueue<>((o1, o2) -> {
-            return (o2.s + o2.e) - (o1.s + o1.e);
+            return o1.s - o2.s;
         });
 
         int n = Integer.parseInt(br.readLine());
@@ -15,9 +15,17 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             int s = Integer.parseInt(st.nextToken());
             int e = Integer.parseInt(st.nextToken());
-            
-
+            pq.offer(new Meeting(s,e));
         }
+
+        while(!pq.isEmpty()){
+            Meeting m = pq.poll();
+
+            if(!pq.isEmpty() && m.e > pq.peek().s) {
+                answer++;
+            }
+        }
+        System.out.println(answer);
     }
 }
 
